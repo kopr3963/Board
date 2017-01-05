@@ -5,5 +5,7 @@ public class Test {
 	System.out.println("test class");
 	
 	System.out.println("Develop branch");
+	
+	System.out.println("디벨롭 커밋");
 }
 }
