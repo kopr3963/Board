@@ -9,7 +9,7 @@
 <body>
 
 <%
-request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 
 	out.write("인코딩 방식 : "+request.getCharacterEncoding()+"</br>");
 	String id = request.getParameter("id");
