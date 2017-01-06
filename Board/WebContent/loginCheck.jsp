@@ -9,14 +9,13 @@
 <body>
 
 <%
-
-
 request.setCharacterEncoding("UTF-8");
 
 out.write("인코딩 방식 : "+request.getCharacterEncoding()+"</br>");
 	String id = request.getParameter("id");
 	String pass = request.getParameter("password");
 	out.write("아이디 : "+id +"</br>"+"비밀번호 : "+pass);
+	
 %>
 
 </body>
