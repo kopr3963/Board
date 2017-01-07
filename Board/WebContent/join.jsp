@@ -9,16 +9,13 @@
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
-
 %>
-
-
 <h1> 회원가입 페이지</h1>
-
-<form action="joinCheck.jsp" method="post">
+<form action="joinCheck.jsp" method="get">
 <div style="border: solid black 1px; width: 500px; padding: 10px;">
-	이름 : &nbsp;<input type="text" name="name"><br/><br/>
-	아이디 :&nbsp; <input type="text" name ="id"><br/><br/>
+	이름 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="text" name="name"> <br/><br/>
+	아이디 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name ="id"> <br/><br/>
 	비밀번호 : &nbsp;<input type="password" name="password"><br/>
 	<br/>
 	<div style="text-align: center;">
