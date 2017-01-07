@@ -15,11 +15,10 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
-		String pass = request.getParameter("pass");
+		String pass = request.getParameter("password");
 		String name = request.getParameter("name");
 
 		Connection conn = null;
-
 		PreparedStatement pstmt = null;
 
 		try {
@@ -36,12 +35,28 @@
 
 			rs = stmt.executeQuery(query);
 
+			
 			if (rs.next()) {
-				out.print(rs.getString(1));
+				//아이디가 있으면 
+				out.print("<script>javascript:alert('아이디 있음.'); location.href='join.jsp';</script>");
+			}else{
+				out.print(id+","+pass+","+name);
+				
+				String insertQuery="INSERT INTO NOTICE.MEMBER VALUES (?,?,?)";
+				
+				pstmt = conn.prepareStatement(insertQuery);
+				pstmt.setString(1, id);
+				pstmt.setString(2,pass);
+				pstmt.setString(3,name);
+				pstmt.executeUpdate();
+				
+				out.print("<script>alert('회원가입 완료.'); location.href='index.jsp';</script>");
 			}
+			
 
 			rs.close();
 			stmt.close();
+			pstmt.close();
 			conn.close();
 
 		} catch (Exception e) {
