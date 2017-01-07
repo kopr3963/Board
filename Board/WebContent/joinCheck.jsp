@@ -51,7 +51,7 @@
 				pstmt.setString(3,name);
 				pstmt.executeUpdate();
 				
-				out.print("<script>alert('회원가입 완료...'); location.href='index.jsp'</script>");
+				out.print("<script>alert('회원가입 완료..'); location.href='index.jsp'</script>");
 			}
 			
 
