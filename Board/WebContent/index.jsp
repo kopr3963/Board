@@ -42,9 +42,11 @@
 	
 	<%}%>
 	
+	<br/>
+	<br/>
 	
 	<div>
-		<input type="button"  value="회원가입" onclick="javascript:location.href='join.jsp';" >
+		<input type="button"  value="회원가입" onclick="javascript:location.href='join.jsp';">
 		<br/><br/>
 	 	<form action="logout.jsp">
 	 	<input type="submit" value="로그아웃" >
