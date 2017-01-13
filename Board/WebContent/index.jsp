@@ -9,6 +9,9 @@
 </head>
 
 <body>
+	<%request.setCharacterEncoding("UTF-8");%>
+	
+	<h1>메인 페이지</h1>
 <h1>메인 페이지</h1>
 	<%
 	request.setCharacterEncoding("UTF-8");
@@ -45,6 +48,7 @@
 	<br/>
 	<br/>
 	
+	
 	<div>
 		<input type="button"  value="회원가입" onclick="javascript:location.href='join.jsp';">
 		<br/><br/>
@@ -68,3 +72,5 @@
 	</div>
 </body>
 </html>
+
+패치테스트.
