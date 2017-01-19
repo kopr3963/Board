@@ -11,7 +11,6 @@
 <body>
 	<%request.setCharacterEncoding("UTF-8");%>
 	
-	<h1>메인 페이지</h1>
 <h1>메인 페이지</h1>
 	<%
 	request.setCharacterEncoding("UTF-8");
@@ -73,4 +72,5 @@
 </body>
 </html>
 
-
+commit1
+테스트해보자.
