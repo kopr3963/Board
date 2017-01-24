@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시판 리스트 페이</title>
+<title>게시판 리스트 페이지</title>
 </head>
 <body>
 
@@ -22,6 +22,8 @@
 		boolean session_flag = false;
 		String user_id = null;
 		String user_name = null;
+		
+		
 
 		String path = request.getContextPath() + "/"; //루트경로
 		if (session.getAttribute("id") != null) {
@@ -128,11 +130,11 @@
 						e.printStackTrace();
 					}
 				}
+				
 		%>
 		
 	<br />
 	<input type="button" value="메인페이지 이동"
 		onclick="javascript:location.href='index.jsp'">
-
 </body>
 </html>
