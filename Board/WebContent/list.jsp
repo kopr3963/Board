@@ -44,7 +44,10 @@
 		}
 	%>
 	<br>
-	<a href=#>글쓰기</a>
+	<br/>
+	<input type="button" onclick="javascript:location.href='write.jsp';" value="글쓰기">
+	
+	<br/>
 	<br />
 	<div id="list">
 
