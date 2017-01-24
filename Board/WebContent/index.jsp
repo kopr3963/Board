@@ -73,7 +73,7 @@
 	</div>
 
 	<div id="content">
-		<input type="button" onclick="javascript:location.href='list.jsp';"
+		<input type="button" onclick="javascript:location.href='list.jsp?pages=0';"
 			value="게시판 페이지로 이동">
 	</div>
 </body>

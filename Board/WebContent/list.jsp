@@ -8,6 +8,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html >
 <html>
 <head>
@@ -63,9 +64,10 @@
 				Connection conn = null;
 				PreparedStatement pstmt = null;
 				PreparedStatement pstmt2 = null;
+				int pageNum=Integer.parseInt(request.getParameter("pages"));
 				try {
 					conn = DriverManager.getConnection(url, db_id, db_pw);
-					pstmt = conn.prepareStatement("select * from board order by time desc limit 20 offset 0");
+					pstmt = conn.prepareStatement("select * from board order by NUM desc limit 20 offset " + pageNum);
 					ResultSet rs = pstmt.executeQuery();
 					SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
 					SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
@@ -74,8 +76,8 @@
 						String rdate = "";
 						Date date = rs.getTimestamp("TIME");
 						int month = date.getMonth() + 1;
-						int day = date.getDay();
-						if (today.getMonth() + 1 == month && today.getDay() == day) {
+						int day = date.getDate();
+						if ((today.getMonth() + 1) == month && today.getDate() == day) {
 							rdate = sdf2.format(date);
 						} else {
 							rdate = sdf.format(date);
@@ -88,7 +90,28 @@
 				<td><%=rdate%></td>
 				<td><%=rs.getInt("HIT")%></td>
 			</tr>
+			
 		<%
+					}
+					pstmt2 = conn.prepareStatement("select count(*) from board");
+					ResultSet rs2 = pstmt2.executeQuery();
+					if(rs2.next()) { 
+						int cnt = rs2.getInt("count(*)");
+						
+						for(int i = 0; i <= cnt/20; i++) {
+							int pages = i;
+							int nextpages = pages*20;
+					
+					
+		%>
+			</table>
+		</div>
+					
+					<a href=/Board/list.jsp?pages=<%=nextpages %>><%=pages+1 %></a> &nbsp;
+		<%
+						}
+					} else {
+						out.print("바부");
 					}
 				} catch(SQLException e) {
 					e.printStackTrace();
@@ -103,9 +126,7 @@
 					}
 				}
 		%>
-	
-		</table>
-	</div>
+		
 	<br />
 	<input type="button" value="메인페이지 이동"
 		onclick="javascript:location.href='index.jsp'">
