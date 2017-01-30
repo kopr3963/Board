@@ -97,7 +97,7 @@
 			<tr>
 				<td><%=rs.getInt("NUM")%></td>
 				<td><%=rs.getString("USERNAME")%></td>
-				<td><a href=#><%=rs.getString("TITLE")%></a></td>
+				<td><a href=view.jsp?num=<%=rs.getInt("num")%>><%=rs.getString("TITLE")%></a></td>
 				<td><%=rdate%></td>
 				<td><%=rs.getInt("HIT")%></td>
 			</tr>
