@@ -69,7 +69,13 @@
 				Connection conn = null;
 				PreparedStatement pstmt = null;
 				PreparedStatement pstmt2 = null;
-				int pageNum=Integer.parseInt(request.getParameter("pages"));
+				
+				int pageNum = 0;
+				
+				if ( request.getParameter("pages") != null)  
+					pageNum =Integer.parseInt(request.getParameter("pages")); 
+				
+				
 				try {
 					conn = DriverManager.getConnection(url, db_id, db_pw);
 					pstmt = conn.prepareStatement("select * from board order by NUM desc limit 20 offset " + pageNum);
