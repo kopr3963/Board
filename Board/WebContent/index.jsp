@@ -41,11 +41,8 @@
 	<%
 		}
 	%>
-
 	<br />
 	<br />
-
-
 	<div>
 		<input type="button" value="회원가입"
 			onclick="javascript:location.href='join.jsp';"> <br />
