@@ -23,10 +23,12 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(url, db_id, db_pw);
 		stmt = conn.createStatement();
-		String query = "INSERT INTO NOTICE.BOARD (username,title,memo,time) VALUES('" + name + "','" + title
+		String query = "INSERT INTO NOTICE.BOARD (id, username,title,memo,time) VALUES('"+id+"','" + name + "','" + title
 				+ "','" + content + "',sysdate());";
 		stmt = conn.prepareStatement(query);
+		out.print(query);
 		stmt.executeUpdate(query);
+		
 		out.print("<script> alert('작성 완료.'); location.href='list.jsp'</script>");
 	} catch (SQLException e) {
 		e.printStackTrace();
