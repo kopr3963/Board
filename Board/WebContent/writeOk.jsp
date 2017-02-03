@@ -26,7 +26,6 @@
 		String query = "INSERT INTO NOTICE.BOARD (id, username,title,memo,time) VALUES('"+id+"','" + name + "','" + title
 				+ "','" + content + "',sysdate());";
 		stmt = conn.prepareStatement(query);
-		out.print(query);
 		stmt.executeUpdate(query);
 		
 		out.print("<script> alert('작성 완료.'); location.href='list.jsp'</script>");
