@@ -27,6 +27,8 @@
 		ResultSet rs = null;
 		String getId = null;
 		
+		String rs_Get_Id = null;
+		
 		try {
 			String url = "jdbc:mysql://125.181.79.156:3306/notice";
 			String db_id = "root";
@@ -43,6 +45,7 @@
 				getId = rs.getString("id");
 				hit = rs.getInt("hit");
 				Date date = rs.getTimestamp("time");
+				rs_Get_Id = rs.getString("id");
 				
 				//out.print(hit_add_query);
 	%>
@@ -81,12 +84,11 @@
 		<input type="button" value="메인 페이지" onclick="javascript:location.href='index.jsp';">
 		
 		<%
-		out.print(session.getAttribute("id"));
-		
-// 			if ( session.getAttribute("id") == rs.getString("id") ){
-		%><% //}%>
+		if ( session.getAttribute("id")  != null){
+		if(session.getAttribute("id").equals(rs_Get_Id)){
+		%>
 		<input type="button" value="삭제하기" onclick="">
-		
+		<% }}%>
 		<input type="button" value="목록으로" onclick="javascript:location.href='list.jsp';">
 		
 	</div>
