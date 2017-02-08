@@ -87,7 +87,7 @@
 		if ( session.getAttribute("id")  != null){
 		if(session.getAttribute("id").equals(rs_Get_Id)){
 		%>
-		<input type="button" value="삭제하기" onclick="">
+		<input type="button" value="삭제하기" onclick="javascript:location.href='delete.jsp?num=<%=num%>&id=<%=session.getAttribute("id")%>'">
 		<% }}%>
 		<input type="button" value="목록으로" onclick="javascript:location.href='list.jsp';">
 		
