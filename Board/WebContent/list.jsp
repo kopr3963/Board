@@ -118,7 +118,7 @@
 			</table>
 		</div>
 					
-					<a href=/Board/list.jsp?pages=<%=nextpages %>><%=pages+1 %></a> &nbsp;
+					<a href=list.jsp?pages=<%=nextpages %>><%=pages+1 %></a> &nbsp;
 		<%
 						}
 					} else {
