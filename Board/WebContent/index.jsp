@@ -115,6 +115,7 @@ body {
 				<ul>
 					<li><a href="list.jsp">게시판</a></li>
 					<li><a href="join.jsp">회원가입</a></li>
+					<li><a href="memberList.jsp">회원 목록</a></li>
 				</ul>
 			</div>
 			<div
@@ -134,7 +135,7 @@ body {
 				공동작업자들 끼리 협업을 함으로써 git과 개발자들과의 커뮤니케이션을 위해 만드는 사이트 입니다.<br/>
 				실력, 시간을 떠나서 개발자들과 꾸준히 소통하고 커밋을 하실 수 있는 분들은 아래 메일 주소로 보내주세요 ^^ <br/>
 				
-				 <a href="mailto:kopr3963@me.com">이메일 보내기.</a> 
+				 <a href="mailto:kopr3963@me.com">이메일 보내기. </a> 
 				
 				
 			    
