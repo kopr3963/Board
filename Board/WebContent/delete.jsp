@@ -30,4 +30,3 @@
 	}
 	response.sendRedirect("list.jsp");
 %>
-
