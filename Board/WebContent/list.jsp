@@ -1,3 +1,4 @@
+<%@page import="jdk.nashorn.internal.runtime.regexp.joni.exception.SyntaxException"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.sql.ResultSet"%>
@@ -63,8 +64,8 @@
 			</tr>
 			<%
 				String url = "jdbc:mysql://125.181.79.156:3306/notice";
-				String db_id = "root";
-				String db_pw = "root";
+				String db_id = "tester";
+				String db_pw = "tester";
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = null;
 				PreparedStatement pstmt = null;
@@ -126,6 +127,7 @@
 					}
 				} catch(SQLException e) {
 					e.printStackTrace();
+					
 				} finally {
 					try {
 						if (pstmt != null)

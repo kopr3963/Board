@@ -25,8 +25,8 @@
 		try {
 
 			String url = "jdbc:mysql://125.181.79.156:3306/notice";
-			String db_id = "root";
-			String db_pw = "root";
+			String db_id = "tester";
+			String db_pw = "tester";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(url, db_id, db_pw);
 
@@ -47,8 +47,8 @@
 				
 				pstmt = conn.prepareStatement(insertQuery);
 				pstmt.setString(1, id);
-				pstmt.setString(2,pass);
-				pstmt.setString(3,name);
+				pstmt.setString(2,name);
+				pstmt.setString(3,pass);
 				pstmt.executeUpdate();
 				
 				out.print("<script>alert('회원가입 완료..'); location.href='index.jsp'</script>");

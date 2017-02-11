@@ -10,8 +10,18 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 		request.getParameter("num");
-		request.getParameter("id");
+		String param_id = request.getParameter("id");
+		String session_id = session.getAttribute("id").toString();
+	
+		if ( param_id.equals(session_id)){
+			System.out.print("참");
+		}else{
+			out.println("");
+		}
 		
 	%>
+	
+	
+	
 </body>
 </html>

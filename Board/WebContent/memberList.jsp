@@ -20,8 +20,8 @@
 	String query = " select * from member ";
 	
 	String url = "jdbc:mysql://125.181.79.156:3306/notice";
-	String db_id = "root";
-	String db_pw = "root";
+	String db_id = "tester";
+	String db_pw = "tester";
 	Class.forName("com.mysql.jdbc.Driver");
 	
 	
