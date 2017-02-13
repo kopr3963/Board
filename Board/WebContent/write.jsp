@@ -35,7 +35,6 @@
 	
 	<div id="content">
 		<form action="writeOk.jsp" method="get">
-			
 			아이디 : <input type="text" value="<%=user_id %>" name="id"><br/>
 			닉네임 : <input type="text" value="<%=user_name%>" name="name"><br/><br/>
 			제목 : <input type="text"  name="title"><br/><br/>
