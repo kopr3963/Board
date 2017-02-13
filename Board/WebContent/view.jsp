@@ -63,7 +63,7 @@
 			<%=rs.getString("memo")%></div>
 	</div>
 	<br/>
-	<br/>
+	<
 	<%
 		}
 		String hit_add_query = "UPDATE notice.board SET hit = "+ (hit + 1) +" WHERE num = " +rs.getInt("num")+";";
