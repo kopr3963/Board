@@ -8,6 +8,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
+<%@taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -28,6 +29,7 @@
 		String getId = null;
 		
 		String rs_Get_Id = null;
+		String memo = null;
 		
 		try {
 			String url = "jdbc:mysql://125.181.79.156:3306/notice";
@@ -46,7 +48,7 @@
 				hit = rs.getInt("hit");
 				Date date = rs.getTimestamp("time");
 				rs_Get_Id = rs.getString("id");
-				
+				memo = rs.getString("memo");
 				//out.print(hit_add_query);
 	%>
 
@@ -60,7 +62,8 @@
 		<%=rs.getInt("hit")%><br />
 		<br />
 		<div style="border: gray solid 1px; height: 300px;">
-			<%=rs.getString("memo")%></div>
+		<u:pre value="<%=memo%>"/>
+		</div>
 	</div>
 	<br/>
 	<%
