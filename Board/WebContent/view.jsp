@@ -33,8 +33,8 @@
 		
 		try {
 			String url = "jdbc:mysql://125.181.79.156:3306/notice";
-			String db_id = "tester";
-			String db_pw = "tester";
+			String db_id = "develop";
+			String db_pw = " develop";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(url, db_id, db_pw);
 			stmt = conn.createStatement();
