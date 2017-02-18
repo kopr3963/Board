@@ -1,4 +1,5 @@
-<%@page import="jdk.nashorn.internal.runtime.regexp.joni.exception.SyntaxException"%>
+<%@page
+	import="jdk.nashorn.internal.runtime.regexp.joni.exception.SyntaxException"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.sql.ResultSet"%>
@@ -15,6 +16,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판 리스트 페이지</title>
+<script>
+	function click_test() {
+		var oDDL = document.getElementById("select");
+		var dd = document.getElementById("content").value;
+		console.log("검색 항목 : "+oDDL.value+", "+dd);
+	}
+	
+	
+</script>
 </head>
 <body>
 
@@ -23,8 +33,6 @@
 		boolean session_flag = false;
 		String user_id = null;
 		String user_name = null;
-		
-		
 
 		String path = request.getContextPath() + "/"; //루트경로
 		if (session.getAttribute("id") != null) {
@@ -47,13 +55,25 @@
 		}
 	%>
 	<br>
-	<br/>
-	<input type="button" onclick="javascript:location.href='write.jsp';" value="글쓰기">
-	
-	<br/>
+	<br />
+	<input type="button" onclick="javascript:location.href='write.jsp';"
+		value="글쓰기">
+
+	<br />
+	<br />
+
+	<div style="float: right;" name="select_serach">
+		<select id="select">
+			<option value="all_search">전체</option>
+			<option value="title_search">제목</option>
+			<option value="name_search">작성자</option>
+			<option value="content_search">내용</option>
+		</select> <input type="text" id="content"> 
+		<input type="button" 
+			value="검색" onclick="click_test();"> <br />
+	</div>
 	<br />
 	<div id="list">
-
 		<table border="1" style="width: 100%">
 			<tr style="background-color: gray">
 				<th style="width: 10%">게시판번호</th>
@@ -64,19 +84,18 @@
 			</tr>
 			<%
 				String url = "jdbc:mysql://125.181.79.156:3306/notice";
-				String db_id ="develop";
+				String db_id = "develop";
 				String db_pw = " develop";
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = null;
 				PreparedStatement pstmt = null;
 				PreparedStatement pstmt2 = null;
-				
+
 				int pageNum = 0;
-				
-				if ( request.getParameter("pages") != null)  
-					pageNum =Integer.parseInt(request.getParameter("pages")); 
-				
-				
+
+				if (request.getParameter("pages") != null)
+					pageNum = Integer.parseInt(request.getParameter("pages"));
+
 				try {
 					conn = DriverManager.getConnection(url, db_id, db_pw);
 					pstmt = conn.prepareStatement("select * from board order by NUM desc limit 20 offset " + pageNum);
@@ -98,49 +117,46 @@
 			<tr>
 				<td><%=rs.getInt("NUM")%></td>
 				<td><%=rs.getString("USERNAME")%></td>
-				<td><a href=view.jsp?num=<%=rs.getInt("num")%>><%=rs.getString("TITLE")%></a></td>
+				<td><a href=view.jsp?num=<%=rs.getInt("NUM")%>><%=rs.getString("TITLE")%></a></td>
 				<td><%=rdate%></td>
 				<td><%=rs.getInt("HIT")%></td>
 			</tr>
-			
-		<%
-					}
+
+			<%
+				}
 					pstmt2 = conn.prepareStatement("select count(*) from board");
 					ResultSet rs2 = pstmt2.executeQuery();
-					if(rs2.next()) { 
+					if (rs2.next()) {
 						int cnt = rs2.getInt("count(*)");
-						
-						for(int i = 0; i <= cnt/20; i++) {
+
+						for (int i = 0; i <= cnt / 20; i++) {
 							int pages = i;
-							int nextpages = pages*20;
-					
-					
-		%>
-			</table>
-		</div>
-					
-					<a href=list.jsp?pages=<%=nextpages %>><%=pages+1 %></a> &nbsp;
-		<%
-						}
-					} else {
-						out.print("바부");
-					}
-				} catch(SQLException e) {
-					e.printStackTrace();
-					
-				} finally {
-					try {
-						if (pstmt != null)
-							pstmt.close();
-						if (conn != null)
-							conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-				
-		%>
-		
+							int nextpages = pages * 20;
+			%>
+		</table>
+	</div>
+
+	<a href=list.jsp?pages= <%=nextpages%>><%=pages + 1%></a> &nbsp;
+	<%
+		}
+			} else {
+				out.print("바부");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	%>
+
 	<br />
 	<input type="button" value="메인페이지 이동"
 		onclick="javascript:location.href='index.jsp'">
