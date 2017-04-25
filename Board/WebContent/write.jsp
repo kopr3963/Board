@@ -29,25 +29,31 @@
 			out.print("location.href='index.jsp'");
 			out.print("</script>");
 		}
-		
-		
 	%>
 	
 	<div id="content">
-		<form action="writeOk.jsp" method="get">
+	
+	<!-- http://rlackdghl.iptime.org:8080/GitDemo/fileupload_ok.jsp -->
+		<form action="http://localhost:8080/Board/writeOk.jsp" method="post"  enctype="multipart/form-data">
 			아이디 : <input type="text" value="<%=user_id %>" name="id"><br/>
 			닉네임 : <input type="text" value="<%=user_name%>" name="name"><br/><br/>
-			제목 : <input type="text"  name="title"><br/><br/>
-			내용 :  <textarea rows="4" cols="50" name="content" >
-				   </textarea>
+			제목 : <input type="text"  name="title" autofocus="autofocus"><br/><br/>
+			내용 :  <textarea rows="4" cols="50" name="content"  autofocus ></textarea>
 			<br/>
 			<br/>
-		
-		
+			파일 : <input type="file" name="file1">
+
 		<input type="submit" value="글 작성"  >
 		<input type="button" value="취소" onclick="cancel();">
 		</form>
-	
+	</div>
+	<br/>
+	<div id="fileupload_ok.jsp">
+		<form action="fileupload_ok.jsp" method="post" enctype="multipart/form-data">
+			파일 : <input type="file" name="file1">
+			
+			<input type="submit" value="전송">
+		</form>	
 	</div>
 </body>
 <script>

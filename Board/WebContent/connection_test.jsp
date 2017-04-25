@@ -35,6 +35,12 @@
 			rs.close();
 			con.close();
 		}
+		
+		String root = request.getSession().getServletContext().getRealPath("/");
+		out.print(root+"<Br/>");
+		
+		out.print(java.lang.System.getProperty("java.class.path"));
+		
 	%>
 
 </body>
