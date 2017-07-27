@@ -13,6 +13,9 @@
 </head>
 <body>
 
+
+
+
 	<%
 		DB_Connection connection = new DB_Connection();
 		Connection con = connection.db_connection();
